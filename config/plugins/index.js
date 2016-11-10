@@ -34,6 +34,8 @@ const devPlugins = [
     files: ['/src/**/*.css'],
     failOnError: false,
   }),
+   new webpack.optimize.OccurenceOrderPlugin(),
+   new webpack.HotModuleReplacementPlugin(),
 ];
 
 const prodPlugins = [

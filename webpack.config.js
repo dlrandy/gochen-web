@@ -6,7 +6,9 @@ const plugins = require('./config/plugins');
 
 
 module.exports = {
-  entry: ['./src/index.tsx'],
+  entry: [   'react-hot-loader/patch',
+  'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+  './src/index.tsx'],
   output: {
     path: __dirname + '/dist',//path.join(__dirname, 'dist')
     filename: '[name].[hash].js',
@@ -20,6 +22,7 @@ module.exports = {
     ]
   },
   resolve: {
+    modules: ['src', 'node_modules'],
     extensions: [
       '',
       '.webpack.js',

@@ -4,7 +4,7 @@
 
 exports.tsx = {
   test: /\.tsx?$/,
-  loader: 'awesome-typescript-loader',
+  loaders: ['babel','awesome-typescript-loader'],
   exclude: /node_modules/,
 };
 

@@ -23,7 +23,9 @@ if(process.env.NODE_ENV === 'production'){
 app.get('*', (req, res) => res.sendFile(path.join(distPath, indexFileName)))
 }else{
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
+app.use(webpackHotMiddleware(compiler, {
+    log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
+  }))
 app.use('*', function (req, res, next) {
   var filename = path.join(compiler.outputPath,'index.html');
   compiler.outputFileSystem.readFile(filename, function(err, result){
