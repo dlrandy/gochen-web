@@ -17,18 +17,12 @@ exports.html = {
 
 exports.css = {
   test: /\.css$/,
-  loaders: [
-  {
-    loader: 'css-loader',
-    options: {
-      modules: true
-    }
-  },
-  {
-    loader: 'postcss-loader'
-  }
+  loaders:[
+         'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader'
   ],
-  exclude: /node_modules/,
+  exclude: /node_modules/
 };
 
 

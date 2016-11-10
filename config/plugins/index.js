@@ -37,7 +37,7 @@ const devPlugins = [
    new webpack.optimize.OccurenceOrderPlugin(),
    new webpack.HotModuleReplacementPlugin(),
 ];
-
+ 
 const prodPlugins = [
 
   new webpack.optimize.UglifyJsPlugin({

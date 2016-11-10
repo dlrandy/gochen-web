@@ -21,7 +21,7 @@ git reset HEAD~1
 https://github.com/ampedandwired/html-webpack-plugin/issues/145
 
 
-
+热重载的时候一定要删除dist目录
 
 
   

@@ -3,12 +3,14 @@
 const path = require('path');
 const loaders = require('./config/loaders');
 const plugins = require('./config/plugins');
-
+const postcssInit = require('./config/postcss')();
 
 module.exports = {
-  entry: [   'react-hot-loader/patch',
-  'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-  './src/index.tsx'],
+  entry: [   
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+    './src/index.tsx'
+  ],
   output: {
     path: __dirname + '/dist',//path.join(__dirname, 'dist')
     filename: '[name].[hash].js',
@@ -18,7 +20,8 @@ module.exports = {
   },
   module: {
     loaders: [
-        loaders.tsx
+        loaders.tsx,
+        loaders.css
     ]
   },
   resolve: {
@@ -33,5 +36,6 @@ module.exports = {
       '.json',
     ],
   },
-  plugins: plugins
+  plugins: plugins,
+  postcss: postcssInit
 };
