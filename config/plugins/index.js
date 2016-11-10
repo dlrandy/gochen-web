@@ -4,10 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SplitByPathPlugin = require('webpack-split-by-path');
+
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const postcssInit = require('../postcss');
 const sourceMap = process.env.TEST || process.env.NODE_ENV !== 'production'
   ? [new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ })]
   : [];
@@ -23,18 +22,12 @@ const basePlugins = [
     inject: 'body',
   }),
   new webpack.NoErrorsPlugin(),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-        // context: filePaths.root,
-        postcss: postcssInit()
-      // ...other configs that used to directly on `modules.exports`
-     }
-  }),
+
   new CopyWebpackPlugin([
     { from: 'src/assets', to: 'assets' },
   ]),
-].concat(sourceMap);
-
+].concat(sourceMap); 
+ 
 const devPlugins = [
   new StyleLintPlugin({
     configFile: './.stylelintrc',
@@ -44,9 +37,7 @@ const devPlugins = [
 ];
 
 const prodPlugins = [
-  new SplitByPathPlugin([
-    { name: 'vendor', path: [path.join(__dirname, '..', 'node_modules/')] },
-  ]),
+
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false,

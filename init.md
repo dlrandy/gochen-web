@@ -16,6 +16,9 @@ https://github.com/rangle/typescript-react-redux-example/blob/master/webpack/loa
 
 https://medium.com/@GiacomoRebonato/hot-module-reloading-with-typescript-and-react-9cc8768e8f24#.4d8zednfc
 
+git reset HEAD~1
+
+https://github.com/ampedandwired/html-webpack-plugin/issues/145
 
 
 

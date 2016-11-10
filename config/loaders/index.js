@@ -1,11 +1,6 @@
 'use strict';
 
-exports.tslint = {
-  test: /\.tsx?$/,
-  loader: 'tslint',
-  exclude: /node_modules/,
-  enforce: 'pre'
-};
+
 
 exports.tsx = {
   test: /\.tsx?$/,
@@ -13,13 +8,6 @@ exports.tsx = {
   exclude: /node_modules/,
 };
 
-exports.istanbulInstrumenter = {
-  test: /^(.(?!\.test))*\.tsx?$/,
-  loader: 'istanbul-instrumenter-loader',
-  query: {
-    embedSource: true,
-  },
-};
 
 exports.html = {
   test: /\.html$/,
@@ -43,10 +31,6 @@ exports.css = {
   exclude: /node_modules/,
 };
 
-exports.json = {
-  test: /\.json$/,
-  loader: 'json',
-};
 
 exports.svg = makeUrlLoader(/\.svg$/);
 exports.eot = makeUrlLoader(/\.eot$/);
