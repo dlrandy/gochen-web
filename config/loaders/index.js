@@ -8,7 +8,7 @@ exports.tsx = {
   exclude: /node_modules/,
 };
 
-
+ 
 exports.html = {
   test: /\.html$/,
   loader: 'raw',

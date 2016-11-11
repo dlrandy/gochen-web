@@ -1,4 +1,4 @@
-import'./styles/index.css'
+import './styles/index.css'
 import Root from './main'
 
 import * as React from 'react'
