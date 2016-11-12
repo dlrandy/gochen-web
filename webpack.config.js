@@ -15,11 +15,7 @@ if (process.env.NODE_ENV == 'development') {
 } else {
   cssLoader = {
     test: /\.css$/,
-    include: [ path.join(__dirname, 'styles') ],
-    loader: ExtractTextPlugin.extract(
-          'style-loader',  
-        'css-loader?sourceMap&-minimize&-autoprefixer&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader?parser=sugarss'
-        ),
+    loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules&importLoaders=1!postcss-loader")
     };
 }
 module.exports = {
@@ -52,6 +48,7 @@ module.exports = {
       '.ts',
       '.js',
       '.json',
+      '.css'
     ],
   },
   plugins: plugins,

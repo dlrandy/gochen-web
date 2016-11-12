@@ -7,6 +7,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SplitByPathPlugin = require('webpack-split-by-path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const sourceMap = process.env.TEST || process.env.NODE_ENV !== 'production'
   ? [new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ })]
@@ -45,6 +46,11 @@ const prodPlugins = [
        'NODE_ENV': JSON.stringify('production')
      }
    }),
+   new CleanWebpackPlugin(['dist'], {
+      root: path.join(__dirname, '..','..'),
+      verbose: true, 
+      dry: false,
+    }),
   new SplitByPathPlugin([
     { name: 'vendor', path: [path.join(__dirname, '..','..', 'node_modules/')] }
   ]),
@@ -54,15 +60,20 @@ const prodPlugins = [
       warnings: false,
     },
   }),
-  new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      children: true,
-      minChunks: 2,
-      async: true,
-  }),
-  new ExtractTextPlugin("[name]-[chunkhash].css",{
-      allChunks: true
-    })
+  // new webpack.optimize.CommonsChunkPlugin({
+  //     name: 'vendor',
+  //     children: true,
+  //     minChunks: 2,
+  //     async: true,
+  // }),
+  new ExtractTextPlugin("index.css",{
+      allChunks: false
+    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   names: ['vendor'],
+    //   filename: '[name].js',
+    //   minChunks: Infinity
+    // })
 ];
 
 module.exports = basePlugins
