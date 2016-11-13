@@ -49,6 +49,7 @@
     "postcss-modules-local-by-default": "^1.1.1",
     "postcss-reporter": "^2.0.0",
     "postcss-smart-import": "^0.5.1",
+    "postcss-url": "^5.1.2",
     "precss": "^1.4.0",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^3.0.0-beta.2",
