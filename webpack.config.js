@@ -6,10 +6,10 @@ const plugins = require('./config/plugins');
 const postcssInit = require('./config/postcss')();
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const devEntry = [];
+const devHt = [];
 let cssLoader = loaders.css;
 if (process.env.NODE_ENV == 'development') {
-   devEntry.concat(['react-hot-loader/patch',
+   devHt.concat(['react-hot-loader/patch',
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000']);
   
 } else {
@@ -19,9 +19,9 @@ if (process.env.NODE_ENV == 'development') {
     };
 }
 module.exports = {
-  entry: [  
+  entry: devHt.concat([  
     './src/index.tsx'
-  ].concat(devEntry),
+  ]),
   output: {
     path: __dirname + '/dist',//path.join(__dirname, 'dist')
     filename: '[name].[hash].js',

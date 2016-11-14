@@ -5,12 +5,14 @@ const path = require('path')
 const postcssBasePlugins = [
   require("postcss-import")({ addDependencyTo: webpack }),
       require("postcss-url")(),
+      require('postcss-utilities')(),
+    require("precss")(),
       require("postcss-cssnext")({
-        browsers:'Last 2 versions Safari >= 8 IE >= 9'
-      }),
+         customProperties: { preserve: true }
+      }    
+      ),
       // add your "plugins" here
-      require('postcss-custom-properties')(),
-      require("postcss-color-function")(),
+
       // and if you want to compress,
       // just use css-loader option that already use cssnano under the hood
       require("postcss-browser-reporter")(),

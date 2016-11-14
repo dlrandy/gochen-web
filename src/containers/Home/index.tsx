@@ -12,8 +12,8 @@ export default class Home extends React.Component<HomeProps, void> {
             <div>
             <h1>HOme
             </h1>
-            <div className={style.blue}>
-             hhhhhh{children}!jtyuytukj4444kjk</div>
+            <div >
+           / uuuu  hhhhhh{children}!jtyuytukj4444kjk</div>
             </div>
         );
     }
