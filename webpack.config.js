@@ -33,6 +33,7 @@ module.exports = {
     'source-map' :
     'inline-source-map',
   module: {
+
     loaders: [
         loaders.tsx,
         cssLoader

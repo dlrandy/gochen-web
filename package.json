@@ -20,6 +20,7 @@
     "@types/react-router": "^2.0.38",
     "@types/webpack": "^1.12.35",
     "@types/webpack-env": "^1.12.1",
+    "@types/whatwg-fetch": "0.0.32",
     "autoprefixer": "^6.5.3",
     "awesome-typescript-loader": "^2.2.4",
     "babel-core": "^6.18.2",
@@ -66,7 +67,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production node ./bin/app.js",
-    "dev": "cross-env NODE_ENV=development PORT=3000 nodemon bin/app.js",
+    "dev": "cross-env NODE_ENV=development PORT=5000 nodemon bin/app.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "prod": "concurrently -r \"npm run build\" \"npm run start\" ",
     "cssModule": "tcm src/styles"
